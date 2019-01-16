@@ -1,0 +1,33 @@
+1：java中的客户端：
+  jedis：
+   步骤：
+     a:创建一个工厂
+     b:创建一个lib:
+        导入jar包，添加到classpath
+     c:测试：
+        获取客户端的链接，调用api测试；
+
+
+2：jedis集成到spring环境中：
+  2.1：使用spring-data-redis:这种很麻烦的，不用。
+  2.2：自己封装：
+    a:引入jar包
+    b:spring的配置文件中加入jedis的配置：
+     jedisPoolConfig：
+     shardedJedisPool
+    c:创建一个接口：
+       获取客户端，资源的还回去
+    d:接口的实现：
+       获取客户端，资源的还回去实现
+    e:模板的封装：
+      RedisClientTemplate ：
+        set(key,value);
+        get(key)
+    f：测试：
+      在你需要的地方使用就行：
+        @Autowri..
+        RedisClientTemplate   redisClientTemplate ;
+        redisClientTemplate.set(key,value)
+
+
+
